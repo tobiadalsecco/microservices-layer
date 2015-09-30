@@ -1,0 +1,25 @@
+{
+  "name": "microservices-layer",
+  "version": "0.1.0",
+  "description": "A wrapper for microservices strategies, with Pigato (ZeroMQ)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tobiadalsecco/microservices-layer.git"
+  },
+  "keywords": [
+    "microservices",
+    "ZeroMq",
+    "zmq",
+    "Pigato"
+  ],
+  "author": "Tobia Dalsecco",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tobiadalsecco/microservices-layer/issues"
+  },
+  "homepage": "https://github.com/tobiadalsecco/microservices-layer#readme"
+}
