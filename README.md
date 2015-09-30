@@ -1,5 +1,7 @@
 # Microservices Layer
 
+EARLY ALPHA, DON'T USE IT IN PRODUCTION!
+
 A wrapper for microservices strategies, with Pigato (ZeroMQ).
 
 The only porpouse of this module is to provide further abstraction.
