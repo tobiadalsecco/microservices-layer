@@ -18,6 +18,9 @@
   ],
   "author": "Tobia Dalsecco",
   "license": "MIT",
+  "dependencies": {
+    "pigato": "0.0.42"
+  },
   "bugs": {
     "url": "https://github.com/tobiadalsecco/microservices-layer/issues"
   },
