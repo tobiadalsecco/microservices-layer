@@ -14,12 +14,15 @@
     "microservices",
     "ZeroMq",
     "zmq",
-    "Pigato"
+    "Pigato",
+    "pubsub",
+    "pub/sub"
   ],
   "author": "Tobia Dalsecco",
   "license": "MIT",
   "dependencies": {
-    "pigato": "0.0.42"
+    "pigato": "0.0.42",
+    "zmq": "^2.13.0"
   },
   "bugs": {
     "url": "https://github.com/tobiadalsecco/microservices-layer/issues"

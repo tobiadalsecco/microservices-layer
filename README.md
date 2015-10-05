@@ -2,9 +2,11 @@
 
 EARLY ALPHA, DON'T USE IT IN PRODUCTION!
 
-A wrapper for microservices strategies, with Pigato (ZeroMQ).
+A wrapper for microservices strategies, based on [Pigato](https://www.npmjs.com/package/pigato) (ZeroMQ).
 
 The only porpouse of this module is to provide further abstraction.
+
+Alos provides Pub/Sub functionalities
 
 ## Install
 
@@ -41,6 +43,8 @@ MicroServices.request(
 
 ```javascript
 
+var MsLayer = require('microservices-layer');
+
 var serviceName = 'some-service';
 var serviceConfigs = {
   port: 1234
@@ -66,5 +70,38 @@ var serviceGateway = function(params, reply){
 };
 
 var service = new MsLayer.Service(serviceName, serviceGateway, serviceConfigs);
+
+```
+
+
+## Pub/Sub
+
+Since 0.1.2 you can use Pub/Sub directly with this module and with a very simple syntax.
+
+### Publisher
+
+```javascript
+
+var MsLayer = require('microservices-layer');
+
+var Publisher = new MsLayer.Pub(3002);
+
+// then, somewhere in your code...
+Publisher.publish('SomeEvent', { some:'value', other: 'value' });
+
+```
+
+### Subscriber
+
+```javascript
+
+var MsLayer = require('microservices-layer');
+
+Subscriber = new MsLayer.Sub(3002);
+
+// subscription is automatic, just set your callback
+Subscriber.on('someEvent', function(data){
+  // do something
+});
 
 ```
