@@ -1,6 +1,6 @@
 {
   "name": "microservices-layer",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A wrapper for microservices strategies, with Pigato (ZeroMQ)",
   "main": "index.js",
   "scripts": {
