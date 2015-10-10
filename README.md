@@ -2,11 +2,9 @@
 
 EARLY ALPHA, DON'T USE IT IN PRODUCTION!
 
-A wrapper for microservices strategies, based on [Pigato](https://www.npmjs.com/package/pigato) (ZeroMQ).
+A wrapper for microservices strategies, based on [Pigato](https://www.npmjs.com/package/pigato) (ZeroMQ) with an optional network abstraction for Docker Links. 
 
-The only porpouse of this module is to provide further abstraction.
-
-Alos provides Pub/Sub functionalities
+Also provides Pub/Sub functionalities .
 
 ## Install
 
@@ -16,16 +14,19 @@ npm install --save microservices-layer
 
 ### Client
 
+#### Localhost
+
 ```javascript
 
-var port = 1234; // @TODO set more ports, and hosts (currently localhost)
+var port = 1234;
+var host = 'localhost';
 
 var MsLayer = require('microservices-layer');
-MicroServices = new MsLayer.Client(port);
+MicroServices = new MsLayer.Client(port, host);
 
 MicroServices.request(
-  // the service identifier string
-  'some-service',
+  // the service identifier string. DON'T use hifens or underscores in the name.
+  'someservice',
   // the json payload
   {
     some: 'payload',
@@ -39,13 +40,45 @@ MicroServices.request(
 
 ```
 
-### Server
+#### Between Docker Containers
+
+Since 1.0.6 you can abstract your network between Docker containers using Docker Links. Just use the same string for your service name and your service's Docker container/link (In the service).
+
+```javascript
+
+var port = 1234;
+var host = 'someservice'; // the service identifier string. DON'T use hifens or underscores in the name.
+
+var MsLayer = require('microservices-layer');
+MicroServices = new MsLayer.Client(port, host, {docker:true});
+
+MicroServices.request(
+  // the service identifier string. DON'T use hifens or underscores in the name.
+  'someservice',
+  // the json payload
+  {
+    some: 'payload',
+    any: 'data'
+  },
+  // callback
+  function(err, response){
+    // do something
+  }
+);
+
+```
+
+Client is lazy, it means that the tcp connection with zmq will be only open the first time the service is called and, as the connection is based on the service name, you don't need any additional configuration besides the Docker Links. Just request the service by its name, enywhere in your code.
+
+### Service
+
+The service will not change its configuration, it will be the same for localhost or Docker environments. Just use the right service name.
 
 ```javascript
 
 var MsLayer = require('microservices-layer');
 
-var serviceName = 'some-service';
+var serviceName = 'someservice'; // the service identifier string. DON'T use hifens or underscores in the name.
 var serviceConfigs = {
   port: 1234
 };

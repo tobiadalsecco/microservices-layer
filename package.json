@@ -16,7 +16,9 @@
     "zmq",
     "Pigato",
     "pubsub",
-    "pub/sub"
+    "pub/sub",
+    "Docker",
+    "Docker links"
   ],
   "author": "Tobia Dalsecco",
   "license": "MIT",
