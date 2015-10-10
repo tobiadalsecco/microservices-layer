@@ -47,10 +47,9 @@ Since 1.0.6 you can abstract your network between Docker containers using Docker
 ```javascript
 
 var port = 1234;
-var host = 'someservice'; // the service identifier string. DON'T use hifens or underscores in the name.
 
 var MsLayer = require('microservices-layer');
-MicroServices = new MsLayer.Client(port, host, {docker:true});
+MicroServices = new MsLayer.Client(port, null, {docker:true});
 
 MicroServices.request(
   // the service identifier string. DON'T use hifens or underscores in the name.
