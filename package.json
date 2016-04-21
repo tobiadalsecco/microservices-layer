@@ -17,15 +17,13 @@
     "Pigato",
     "pubsub",
     "pub/sub",
-    "Docker",
-    "Docker links"
+    "Docker"
   ],
   "author": "Tobia Dalsecco",
   "license": "MIT",
   "dependencies": {
     "pigato": "0.0.42",
     "zmq": "^2.13.0",
-    "docker-links": ">= 1.0.2",
     "ip-regex": ">= 1.0.3"
   },
   "bugs": {
